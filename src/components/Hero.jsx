@@ -1,5 +1,5 @@
 import coffeeVideo from "../assets/coffee-video.mp4";
-import{ Link} from "react-router-dom"
+import { Link } from "react-router-dom";
 function Hero() {
   return (
     <section className="relative h-screen overflow-hidden">
