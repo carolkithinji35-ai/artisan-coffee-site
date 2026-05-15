@@ -1,8 +1,19 @@
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Shop from "./pages/Shop";
+import Admin from "./pages/Admin";
+import Navbar from "./components/Navbar";
+
 function App() {
   return (
-    <div className="min-h-screen bg-stone-100 flex items-center justify-center">
-      <h1 className="text-5xl font-bold text-amber-900">Hello Artisan Coffee Shop</h1>
-    </div>
+    <>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/shop" element={<Shop />} />
+        <Route path="/admin" element={<Admin />} />
+      </Routes>
+    </>
   );
 }
 
