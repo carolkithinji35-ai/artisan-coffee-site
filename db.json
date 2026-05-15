@@ -6,7 +6,7 @@
       "description": "Bold and fruity coffee with bright acidity",
       "origin": "Kenya",
       "location": "Nairobi CBD",
-      " price": 15
+      "price": 15
     },
     {
       "id": 2,
@@ -14,7 +14,7 @@
       "description": "Floral arom with citrus notes",
       "origin": "Ethiopia",
       "location": "Westlands",
-      " price": 18
+      "price": 18
     },
     {
       "id": 3,
@@ -22,7 +22,7 @@
       "description": "Rich chocolate flavor with smooth finish",
       "origin": "Colombia",
       "location": "Karen",
-      " price": 35
+      "price": 35
     },
     {
       "id": 4,
@@ -30,7 +30,7 @@
       "description": "Nutty and smooth with low acidity",
       "origin": "Brazil",
       "location": "Kilimani",
-      " price": 16
+      "price": 16
     },
     {
       "id": 5,
@@ -38,7 +38,7 @@
       "description": "Strong and intense with earthy tones",
       "origin": "Uganda",
       "location": "Mombasa",
-      " price": 17
+      "price": 17
     },
     {
       "id": 6,
@@ -46,7 +46,7 @@
       "description": "Bright, wine-like flavor with a clean finish",
       "origin": "Tanzania",
       "location": "Kisumu",
-      " price": 19
+      "price": 19
     }
   ]
 }
