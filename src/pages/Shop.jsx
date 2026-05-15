@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import CoffeeCard from "../components/CoffeeCard";
+import CoffeeList from "../components/CoffeeList";
 
 export default function Shop() {
   const [selectedLocation, setSelectedLocation] = useState(null);
@@ -53,18 +53,7 @@ export default function Shop() {
       <main className="flex-1 p-8">
         <h1 className="text-3xl font-bold mb-6">Our Coffees</h1>
 
-        {filteredCoffees.length === 0 ? (
-          <div className="text-center text-gray-500 mt-10">
-            <h2 className="text-2xl font-semibold mb-2">
-              No coffees in this city for now ☕
-            </h2>
-            <p>Try selecting another location.</p>
-          </div>
-        ) : (<div className="grid grid-col-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredCoffees.map((coffee) => (
-            <CoffeeCard key={coffee.id} coffee={coffee} />
-          ))}
-        </div>)}
+        <CoffeeList coffees={filteredCoffees}/>
       </main>
     </div>
   );
