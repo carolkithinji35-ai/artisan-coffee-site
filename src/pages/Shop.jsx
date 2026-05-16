@@ -1,25 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import CoffeeList from "../components/CoffeeList";
+import useCoffeData from "../hooks/useCoffeeData";
+import Searchbar from "../components/Searchbar";
 
 export default function Shop() {
   const [selectedLocation, setSelectedLocation] = useState(null);
-  const [coffees, setCoffees] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetch(
-      "https://my-json-server.typicode.com/carolkithinji35-ai/coffee.api/coffees",
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        setCoffees(data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error("Failed to fetch coffees:", err);
-        setLoading(false);
-      });
-  }, []);
+  const [search, setSearch] = useState("");
+  const { coffees, loading } = useCoffeData();
 
   const locations = [
     "Nairobi CBD",
@@ -27,12 +14,15 @@ export default function Shop() {
     "Karen",
     "Kilimani",
     "Mombasa",
-    
   ];
 
-  const filteredCoffees = selectedLocation
-    ? coffees.filter((coffee) => coffee.location === selectedLocation)
-    : coffees;
+  const filteredCoffees = coffees
+    .filter((coffee) =>
+      selectedLocation ? coffee.location === selectedLocation : true,
+    )
+    .filter((coffee) =>
+      coffee.name.toLowerCase().includes(search.toLowerCase()),
+    );
   return (
     <div className="min-h-screen flex  bg-stone-100 flex-col md:flex-row">
       {/* side bar */}
@@ -63,6 +53,8 @@ export default function Shop() {
 
       {/* coffee varieties Area */}
       <main className="flex-1 p-8">
+        {/* search bar */}
+        <Searchbar search={search} setSearch={setSearch} />
         <h1 className="text-3xl font-bold mb-6">Our Coffees</h1>
 
         {loading ? (
