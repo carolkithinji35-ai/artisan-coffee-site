@@ -1,12 +1,11 @@
 {
   "coffees": [
     {
-      "id": "1",
       "name": "Kenyan AA",
-      "description": "Bold and fruity coffee with bright acidity",
-      "origin": "Kenya",
+      "price": "16",
       "location": "Nairobi CBD",
-      "price": 15
+      "description": "Bold and fruity coffee with bright acidity",
+      "id": "1"
     },
     {
       "id": "2",
@@ -48,6 +47,6 @@
       "location": "Kisumu",
       "price": 19
     }
-  ],
-  "$schema": "./node_modules/json-server/schema.json"
+  ]
+  
 }

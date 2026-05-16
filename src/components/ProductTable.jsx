@@ -1,10 +1,18 @@
-export default function ProductTable({ coffees, setCoffees }) {
-
+export default function ProductTable({
+  coffees,
+  setCoffees,
+  setEditingCoffee,
+}) {
   //handle deleting a coffee, use delete request to backend(json.server), that removes coffee from db.json using its id.
   // updates local state
 
   //
   function handleDelete(id) {
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this coffee?",
+    );
+    if (!confirmDelete) return;
+
     fetch(`http://localhost:3001/coffees/${id}`, {
       method: "DELETE",
     }).then(() => {
@@ -21,7 +29,20 @@ export default function ProductTable({ coffees, setCoffees }) {
             className="p-3 border  bg-white shadow-sm rounded-lg border-stone-100 hover:shadow-md transition flex justify-between items-center"
           >
             <span> {coffee.name}</span>
-            <button onClick={()=>handleDelete(coffee.id)} className="text-red-600 hover:text-red-800">Delete</button>
+            <div className="flex gap-4">
+              <button
+                onClick={() => setEditingCoffee(coffee)}
+                className="text-blue-600 hover:text-blue-800 mr-3"
+              >
+                Edit
+              </button>
+              <button
+                onClick={() => handleDelete(coffee.id)}
+                className="text-red-600 hover:text-red-800"
+              >
+                Delete
+              </button>
+            </div>
           </li>
         ))}
       </ul>
