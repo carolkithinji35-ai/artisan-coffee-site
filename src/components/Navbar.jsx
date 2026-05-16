@@ -12,14 +12,23 @@ function Navbar() {
           Artisan Cafe
         </h1>
         <div className="flex gap-6 items-center">
-          <Link to="/">Home</Link>
-          <Link to="/shop">Shop</Link>
-          <Link to="/admin">Admin</Link>
+          <Link
+            to="/"
+            className="cursor-pointer transition-all duration-200 hover:text-amber-200 hover:-translate-y-0.5"
+          >
+            Home
+          </Link>
           <Link
             to="/shop"
-            className="bg-stone-100 px-3 py-2 rounded-full hover:bg-amber-900 transition-all duration-300 text-amber-900 hover:text-white "
+            className="cursor-pointer transition-all duration-200 hover:text-amber-200 hover:-translate-y-0.5"
           >
-            Shop Now
+            Shop
+          </Link>
+          <Link
+            to="/admin"
+            className="cursor-pointer transition-all duration-200 hover:text-amber-200 hover:-translate-y-0.5"
+          >
+            Admin
           </Link>
         </div>
       </nav>

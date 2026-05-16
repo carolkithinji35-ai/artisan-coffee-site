@@ -12,8 +12,8 @@ export default function Shop() {
     )
       .then((res) => res.json())
       .then((data) => {
-        setCoffees(data)
-        setLoading(false)
+        setCoffees(data);
+        setLoading(false);
       })
       .catch((err) => {
         console.error("Failed to fetch coffees:", err);
@@ -27,31 +27,33 @@ export default function Shop() {
     "Karen",
     "Kilimani",
     "Mombasa",
-    "Kisumu",
-    "Meru",
-    "Nakuru",
+    
   ];
 
   const filteredCoffees = selectedLocation
     ? coffees.filter((coffee) => coffee.location === selectedLocation)
     : coffees;
   return (
-    <div className="min-h-screen flex  bg-stone-100">
+    <div className="min-h-screen flex  bg-stone-100 flex-col md:flex-row">
       {/* side bar */}
-      <aside className="w-64 bg-amber-900 text-white p-6">
+      <aside className="w-full md:w-64 md:p-6 bg-amber-900 text-white p-6">
         <h2 className="text-xl font-bold mb-6 text-center  tracking-wide">
           Locations
         </h2>
         <div className="h-px bg-amber-700 mb-4"></div>
-        <ul className="space-y-2">
+        <ul className="flex md:block gap-2 md:space-y-2 overflow-x-auto items-center">
           {locations.map((city) => (
             <li
               key={city}
               onClick={() =>
                 setSelectedLocation((prev) => (prev === city ? null : city))
               }
-              className={`cursor-pointer px-3 py-2 rounded-md transition-all duration-300
-                ${selectedLocation === city ? "bg-amber-50 text-amber-900" : "hover:bg-amber-50 hover:text-amber-900"}`}
+              className={`cursor-pointer px-3 py-2 rounded-full whitespace-nowrap transition-all duration-300
+              ${
+                selectedLocation === city
+                  ? "bg-amber-50 text-amber-900"
+                  : "hover:bg-amber-50 hover:text-amber-900"
+              }`}
             >
               {city}
             </li>
