@@ -49,7 +49,7 @@ export default function Shop() {
         </ul>
       </aside>
 
-      {/* coffee variety Area */}
+      {/* coffee varieties Area */}
       <main className="flex-1 p-8">
         <h1 className="text-3xl font-bold mb-6">Our Coffees</h1>
 
