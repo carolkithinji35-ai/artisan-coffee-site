@@ -4,13 +4,21 @@ import CoffeeList from "../components/CoffeeList";
 export default function Shop() {
   const [selectedLocation, setSelectedLocation] = useState(null);
   const [coffees, setCoffees] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch(
       "https://my-json-server.typicode.com/carolkithinji35-ai/coffee.api/coffees",
     )
       .then((res) => res.json())
-      .then((data) => setCoffees(data));
+      .then((data) => {
+        setCoffees(data)
+        setLoading(false)
+      })
+      .catch((err) => {
+        console.error("Failed to fetch coffees:", err);
+        setLoading(false);
+      });
   }, []);
 
   const locations = [
@@ -55,7 +63,13 @@ export default function Shop() {
       <main className="flex-1 p-8">
         <h1 className="text-3xl font-bold mb-6">Our Coffees</h1>
 
-        <CoffeeList coffees={filteredCoffees}/>
+        {loading ? (
+          <p className="text-center text-amber-900 font-semibold animate-pulse">
+            Loading coffees... ☕
+          </p>
+        ) : (
+          <CoffeeList coffees={filteredCoffees} />
+        )}
       </main>
     </div>
   );

@@ -9,14 +9,22 @@ export default function Admin() {
   const [location, setLocation] = useState("");
   const [image, setImage] = useState("");
   const [editingCoffee, setEditingCoffee] = useState(null);
+  const [loading, setLoading] = useState(true);
   //fetch data from db.json server
   useEffect(() => {
     fetch(
       "https://my-json-server.typicode.com/carolkithinji35-ai/coffee.api/coffees",
     )
       .then((res) => res.json())
-      .then((data) => setCoffees(data));
-  });
+      .then((data) => {
+        setCoffees(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Failed to fetch coffees:", err);
+        setLoading(false);
+      });
+  }, []);
 
   useEffect(() => {
     if (editingCoffee) {
@@ -50,15 +58,17 @@ export default function Admin() {
         },
         body: JSON.stringify(newCoffee),
       },
-    ).then((addedCoffee) => {
-      //uses the latest state
-      setCoffees((prev) => [...prev, addedCoffee]);
-      setName("");
-      setPrice("");
-      setLocation("");
-      setImage("");
-      setDescription("");
-    });
+    )
+      .then((res) => res.json())
+      .then((addedCoffee) => {
+        //uses the latest state
+        setCoffees((prev) => [...prev, addedCoffee]);
+        setName("");
+        setPrice("");
+        setLocation("");
+        setImage("");
+        setDescription("");
+      });
   };
 
   // Handles updating an existing coffee
@@ -88,8 +98,8 @@ export default function Admin() {
     )
       .then((res) => res.json())
       .then((updatedCoffee) => {
-        setCoffees(
-          coffees.map((coffee) =>
+        setCoffees((prev) =>
+          prev.map((coffee) =>
             coffee.id === editingCoffee.id ? updatedCoffee : coffee,
           ),
         );
@@ -156,11 +166,17 @@ export default function Admin() {
           Add
         </button>
       </form>
-      <ProductTable
-        coffees={coffees}
-        setCoffees={setCoffees}
-        setEditingCoffee={setEditingCoffee}
-      />
+      {loading ? (
+        <p className="text-center text-amber-900 font-semibold mt-5">
+          Loading... ☕
+        </p>
+      ) : (
+        <ProductTable
+          coffees={coffees}
+          setCoffees={setCoffees}
+          setEditingCoffee={setEditingCoffee}
+        />
+      )}
     </div>
   );
 }
