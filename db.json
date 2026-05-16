@@ -1,7 +1,7 @@
 {
   "coffees": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Kenyan AA",
       "description": "Bold and fruity coffee with bright acidity",
       "origin": "Kenya",
@@ -9,7 +9,7 @@
       "price": 15
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Ethiopian Yirgacheffe",
       "description": "Floral arom with citrus notes",
       "origin": "Ethiopia",
@@ -17,7 +17,7 @@
       "price": 18
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Colombian Dark Roast",
       "description": "Rich chocolate flavor with smooth finish",
       "origin": "Colombia",
@@ -25,7 +25,7 @@
       "price": 35
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Brazilian Santos",
       "description": "Nutty and smooth with low acidity",
       "origin": "Brazil",
@@ -33,7 +33,7 @@
       "price": 16
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Ugandan Espresso Blend",
       "description": "Strong and intense with earthy tones",
       "origin": "Uganda",
@@ -41,12 +41,13 @@
       "price": 17
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "Tanzanian Peaberry",
       "description": "Bright, wine-like flavor with a clean finish",
       "origin": "Tanzania",
       "location": "Kisumu",
       "price": 19
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
