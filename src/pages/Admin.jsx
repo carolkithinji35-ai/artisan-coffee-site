@@ -11,7 +11,9 @@ export default function Admin() {
   const [editingCoffee, setEditingCoffee] = useState(null);
   //fetch data from db.json server
   useEffect(() => {
-    fetch("http://localhost:3001/coffees")
+    fetch(
+      "https://my-json-server.typicode.com/carolkithinji35-ai/coffee.api/coffees",
+    )
       .then((res) => res.json())
       .then((data) => setCoffees(data));
   });
@@ -39,13 +41,16 @@ export default function Admin() {
       description,
     };
 
-    fetch("http://localhost:3001/coffees", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
+    fetch(
+      "https://my-json-server.typicode.com/carolkithinji35-ai/coffee.api/coffees",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newCoffee),
       },
-      body: JSON.stringify(newCoffee),
-    }).then((addedCoffee) => {
+    ).then((addedCoffee) => {
       //uses the latest state
       setCoffees((prev) => [...prev, addedCoffee]);
       setName("");
@@ -65,19 +70,22 @@ export default function Admin() {
   const handleUpdateCoffee = (e) => {
     e.preventDefault();
 
-    fetch(`http://localhost:3001/coffees/${editingCoffee.id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
+    fetch(
+      `https://my-json-server.typicode.com/carolkithinji35-ai/coffee.api/coffees/${editingCoffee.id}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          price,
+          location,
+          image,
+          description,
+        }),
       },
-      body: JSON.stringify({
-        name,
-        price,
-        location,
-        image,
-        description,
-      }),
-    })
+    )
       .then((res) => res.json())
       .then((updatedCoffee) => {
         setCoffees(

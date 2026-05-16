@@ -13,9 +13,12 @@ export default function ProductTable({
     );
     if (!confirmDelete) return;
 
-    fetch(`http://localhost:3001/coffees/${id}`, {
-      method: "DELETE",
-    }).then(() => {
+    fetch(
+      `https://my-json-server.typicode.com/carolkithinji35-ai/coffee-api/coffees/${id}`,
+      {
+        method: "DELETE",
+      },
+    ).then(() => {
       setCoffees(coffees.filter((coffee) => coffee.id !== id));
     });
   }

@@ -6,7 +6,9 @@ export default function Shop() {
   const [coffees, setCoffees] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3001/coffees")
+    fetch(
+      "https://my-json-server.typicode.com/carolkithinji35-ai/coffee.api/coffees",
+    )
       .then((res) => res.json())
       .then((data) => setCoffees(data));
   }, []);
