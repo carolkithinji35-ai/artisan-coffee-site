@@ -63,7 +63,11 @@ export default function Shop() {
             Loading coffees... ☕
           </p>
         ) : (
-          <CoffeeList coffees={filteredCoffees} />
+          <CoffeeList
+            coffees={filteredCoffees}
+            search={search}
+            selectedLocation={selectedLocation}
+          />
         )}
       </main>
     </div>
