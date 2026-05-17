@@ -1,8 +1,8 @@
-# Artisan Coffee
+# Artisan Cafe
 
 ## Overview
 
-Artisan Coffee is a React-based web application that simulates a real-world coffee shop platform with both an admin dashboard and a customer-facing shop interface. It demonstrates full CRUD functionality connected to a live REST API, focusing on clean state management, reusable components, and data synchronization across views.
+Artisan Cafe is a React-based web application that simulates a real-world coffee shop platform with both an admin dashboard and a customer-facing shop interface. It demonstrates full CRUD functionality connected to a live REST API, focusing on clean state management, reusable components, and data synchronization across views.
 
 The project ensures that updates made in the admin dashboard are immediately reflected in the shop through a centralized API.
 
