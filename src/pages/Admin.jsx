@@ -13,7 +13,7 @@ export default function Admin() {
   const [loading, setLoading] = useState(true);
   //fetch data from db.json server
   useEffect(() => {
-    getCoffees()   
+    getCoffees()
       .then((data) => {
         setCoffees(data);
         setLoading(false);
@@ -47,20 +47,17 @@ export default function Admin() {
       description,
     };
 
-    fetch(
-      "https://coffee-api-4284.onrender.com/coffees",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newCoffee),
+    fetch("https://coffee-api-4284.onrender.com/coffees", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
       },
-    )
+      body: JSON.stringify(newCoffee),
+    })
       .then((res) => res.json())
-      .then((addedCoffee) => {
-        //uses the latest state
-        setCoffees((prev) => [...prev, addedCoffee]);
+      .then(() => {
+        getCoffees().then(setCoffees);
+
         setName("");
         setPrice("");
         setLocation("");
@@ -78,31 +75,28 @@ export default function Admin() {
   const handleUpdateCoffee = (e) => {
     e.preventDefault();
 
-    fetch(
-      `https://coffee-api-4284.onrender.com/coffees/${editingCoffee.id}`,
-      {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name,
-          price,
-          location,
-          image,
-          description,
-        }),
+    fetch(`https://coffee-api-4284.onrender.com/coffees/${editingCoffee.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
       },
-    )
+      body: JSON.stringify({
+        name,
+        price,
+        location,
+        image,
+        description,
+      }),
+    })
       .then((res) => res.json())
-      .then((updatedCoffee) => {
-        setCoffees((prev) =>
-          prev.map((coffee) =>
-            coffee.id === editingCoffee.id ? updatedCoffee : coffee,
-          ),
-        );
-
+      .then(() => {
         setEditingCoffee(null);
+        setName("");
+        setPrice("");
+        setLocation("");
+        setImage("");
+        setDescription("");
+        getCoffees().then(setCoffees);
       });
   };
   // Handles form submission for both ADD and EDIT modes. Checks if we are editing an existing coffee.If editingCoffee exists, update coffee (PUT).If not , create new coffee (POST)
@@ -161,7 +155,7 @@ export default function Admin() {
         />
 
         <button className="bg-amber-900 hover:bg-amber-800 text-white px-4 py-2 rounded-lg transition-all duration-300">
-          Add
+          {editingCoffee ? "Update Coffee" : "Add Coffee"}
         </button>
       </form>
       {loading ? (

@@ -6,15 +6,19 @@ export default function useCoffeData() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getCoffees()
-      .then((data) => {
-        setCoffees(data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error("Failed to fetch coffees:", err);
-        setLoading(false);
-      });
+    const fetchData = () => {
+      getCoffees()
+        .then((data) => {
+          setCoffees(data);
+          setLoading(false);
+        })
+        .catch((err) => {
+          console.error(err);
+          setLoading(false);
+        });
+    };
+
+    fetchData();
   }, []);
 
   return { coffees, setCoffees, loading };

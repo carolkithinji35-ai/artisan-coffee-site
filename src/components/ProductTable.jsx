@@ -11,15 +11,15 @@ export default function ProductTable({
     const confirmDelete = window.confirm(
       "Are you sure you want to delete this coffee?",
     );
+
     if (!confirmDelete) return;
 
-    fetch(
-      `https://my-json-server.typicode.com/carolkithinji35-ai/coffee-api/coffees/${id}`,
-      {
-        method: "DELETE",
-      },
-    ).then(() => {
-      setCoffees(coffees.filter((coffee) => coffee.id !== id));
+    fetch(`https://coffee-api-4284.onrender.com/coffees/${id}`, {
+      method: "DELETE",
+    }).then(() => {
+      fetch("https://coffee-api-4284.onrender.com/coffees")
+        .then((res) => res.json())
+        .then((data) => setCoffees(data));
     });
   }
 
