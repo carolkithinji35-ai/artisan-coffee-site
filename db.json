@@ -5,7 +5,8 @@
       "price": "16",
       "location": "Nairobi CBD",
       "description": "Bold and fruity coffee with bright acidity",
-      "id": "1"
+      "id": "1",
+      "image":"https://www.pexels.com/photo/red-coffee-cup-with-freshly-brewed-espresso-28905140/"
     },
     {
       "id": "2",
