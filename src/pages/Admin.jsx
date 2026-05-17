@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import ProductTable from "../components/ProductTable";
+import { getCoffees } from "../services/api";
 
 export default function Admin() {
   const [coffees, setCoffees] = useState([]);
@@ -12,10 +13,7 @@ export default function Admin() {
   const [loading, setLoading] = useState(true);
   //fetch data from db.json server
   useEffect(() => {
-    fetch(
-      "https://my-json-server.typicode.com/carolkithinji35-ai/coffee.api/coffees",
-    )
-      .then((res) => res.json())
+    getCoffees()   
       .then((data) => {
         setCoffees(data);
         setLoading(false);
