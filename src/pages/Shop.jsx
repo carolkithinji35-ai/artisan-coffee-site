@@ -14,6 +14,7 @@ export default function Shop() {
     "Karen",
     "Kilimani",
     "Mombasa",
+    "Meru"
   ];
 
   const filteredCoffees = coffees
