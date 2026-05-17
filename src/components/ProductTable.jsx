@@ -25,6 +25,9 @@ export default function ProductTable({
 
   return (
     <div className="mt-6 md:max-w-2/3 mx-auto">
+      <h2 className="text-xl font-bold text-amber-900 mb-4 text-center">
+        Available Coffees
+      </h2>
       <ul className="space-y-2">
         {coffees.map((coffee) => (
           <li
