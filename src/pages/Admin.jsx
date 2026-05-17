@@ -48,7 +48,7 @@ export default function Admin() {
     };
 
     fetch(
-      "https://my-json-server.typicode.com/carolkithinji35-ai/coffee.api/coffees",
+      "https://coffee-api-4284.onrender.com/coffees",
       {
         method: "POST",
         headers: {
@@ -79,7 +79,7 @@ export default function Admin() {
     e.preventDefault();
 
     fetch(
-      `https://my-json-server.typicode.com/carolkithinji35-ai/coffee.api/coffees/${editingCoffee.id}`,
+      `https://coffee-api-4284.onrender.com/coffees/${editingCoffee.id}`,
       {
         method: "PUT",
         headers: {
