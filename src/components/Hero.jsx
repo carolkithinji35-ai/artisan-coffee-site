@@ -14,8 +14,8 @@ function Hero() {
       </video>
 
       <div className="absolute inset-0 bg-black/40"></div>
-      <div className="relative z-10 flex h-full px-6 md:px-10 text-white items-end pb-85 md:pb-44 md:justify-start">
-        <div className="max-w-xl bg-white/10 backdrop-blur-md p-6 rounded space-y-4 md:ml-10 mt-6 md:mt-10">
+      <div className="relative z-10 flex h-full px-6 md:px-10 text-white items-end pb-95 md:pb-64 md:justify-start">
+        <div className="max-w-xl   p-6 rounded space-y-4 md:ml-10 mt-6 md:mt-10">
           <h1 className="text-3xl md:text-4xl font-bold">
             Crafted Coffee Experiences
           </h1>
