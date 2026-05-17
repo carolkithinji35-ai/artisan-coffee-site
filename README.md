@@ -9,7 +9,7 @@ The project ensures that updates made in the admin dashboard are immediately ref
 ---
 ## Live Demo
 
-- Live Site: https://your-live-demo-link.com  
+- Live Site: https://artisan-cafe-site.vercel.app/ 
 - API: https://coffee-api-4284.onrender.com/coffees  
 
 ---
